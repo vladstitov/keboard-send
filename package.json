@@ -1,0 +1,23 @@
+{
+  "name": "keboard-send",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladstitov/keboard-send.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladstitov/keboard-send/issues"
+  },
+  "homepage": "https://github.com/vladstitov/keboard-send#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "node-global-key-listener": "^0.0.14"
+  }
+}
