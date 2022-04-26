@@ -3,7 +3,7 @@ import * as WebSocket from 'ws';
 
 const v = new GlobalKeyboardListener();
 
-const ws = new WebSocket('ws://localhost:8081/stream', {
+const ws = new WebSocket('ws://192.168.0.22:8081/stream', {
     perMessageDeflate: false
 });
 
@@ -15,6 +15,7 @@ function sendSocketMessage(message) {
     console.log(message);
     ws.send(message);
 };
+
 const KEYS = {}
 const specialChars = {
     space: ' ', comma: ',', dot: '.', quote: "'", section: '`', semicolon: ';', slash: '/',
