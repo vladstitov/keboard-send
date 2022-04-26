@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node main.js"
+    "send": "node send.js",
+    "receive": "node receive.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   "homepage": "https://github.com/vladstitov/keboard-send#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "node-global-key-listener": "^0.0.14"
+    "node-global-key-listener": "^0.0.14",
+    "serialport": "^10.4.0",
+    "ws": "^8.5.0"
   }
 }
