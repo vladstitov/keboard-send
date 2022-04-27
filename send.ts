@@ -3,7 +3,7 @@ import * as WebSocket from 'ws';
 
 const v = new GlobalKeyboardListener();
 
-const ws = new WebSocket('ws://192.168.0.22:8081/stream', {
+const ws = new WebSocket('ws://192.168.0.18:8081/stream', {
     perMessageDeflate: false
 });
 
@@ -69,6 +69,8 @@ function keyUp(letter: string) {
         case 'f11':
             sendSocketMessage('O');
             break
+        case 'escape':
+            sendSocketMessage('Q');
         default :
             if(letter.length === 1)sendSocketMessage(letter);
             else console.log('UNKNOWN ' + letter);
