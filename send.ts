@@ -3,7 +3,7 @@ import * as WebSocket from 'ws';
 
 const v = new GlobalKeyboardListener();
 
-const ws = new WebSocket('ws://192.168.0.22:8081/stream', { /// 192.168.0.18:8081
+const ws = new WebSocket('ws://192.168.0.22:8081/stream', { /// 192.168.0.18:8081 .22.
     perMessageDeflate: false
 });
 
