@@ -38,6 +38,10 @@ function keyDown(letter: string) {
         case 'right shift':
             sendSocketMessage('S');
             break;
+        case 'left alt':
+        case 'right alt':
+            sendSocketMessage('A');
+            break;
         case 'left ctrl':
         case 'right ctrl':
             sendSocketMessage('T');
@@ -57,6 +61,10 @@ function keyUp(letter: string) {
         case 'right ctrl':
             sendSocketMessage('L');
             break;
+        case 'left alt':
+        case 'right alt':
+            sendSocketMessage('Z');
+            break;
         case 'return':
             sendSocketMessage('E');
             break;
@@ -71,6 +79,18 @@ function keyUp(letter: string) {
             break
         case 'escape':
             sendSocketMessage('Q');
+            break;
+        case 'caps lock':
+            sendSocketMessage('V');
+            break
+
+        case 'left arrow':
+            sendSocketMessage('N');
+            break;
+        case 'right arrow':
+            sendSocketMessage('M');
+            break
+
         default :
             if(letter.length === 1)sendSocketMessage(letter);
             else console.log('UNKNOWN ' + letter);
