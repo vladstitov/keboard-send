@@ -16,11 +16,13 @@ function sendSocketMessage(message) {
     ws.send(message);
 };
 
+
 const KEYS = {}
 const specialChars = {
     space: ' ', comma: ',', dot: '.', quote: "'", section: '`', semicolon: ';', slash: '/',
     'square bracket open': '[', 'square bracket close': ']', 'forward slash': '/', bsckslash:' ', equals:'=', minus:'-'
 };
+
 
 
 v.addListener(function (e, down) {

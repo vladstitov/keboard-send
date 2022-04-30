@@ -18,4 +18,3 @@ wss.on('connection', function connection(ws) {
     });
     ws.send('something');
 });
-//# sourceMappingURL=receive.js.map

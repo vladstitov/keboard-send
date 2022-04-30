@@ -91,4 +91,3 @@ function keyUp(letter) {
                 console.log('UNKNOWN ' + letter);
     }
 }
-//# sourceMappingURL=send.js.map
