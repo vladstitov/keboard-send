@@ -9,7 +9,7 @@ SerialPort.list().then(res => {
 });
 
 const serialPort= new SerialPort( {
-    path:'COM3',
+    path:'COM5',
     baudRate: 9600
 });
 
