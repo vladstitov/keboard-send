@@ -14,11 +14,9 @@ const serialPort= new SerialPort( {
 });
 
 
-wss.on('connection', function connection(ws) {
+wss.on('connection', function connection(ws:WebSocketServer) {
     ws.on('message', function message(data) {
-        console.log('received ', data + '');
+        //console.log('received ', data + '');
         serialPort.write(data + '\n');
-    });
-
-    ws.send('something');
+    });  
 });
