@@ -8,12 +8,11 @@ serialport_1.SerialPort.list().then(res => {
     // serialPort.write('ROBOT POWER ON')
 });
 const serialPort = new serialport_1.SerialPort({
-    path: 'COM3',
+    path: 'COM5',
     baudRate: 9600
 });
 wss.on('connection', function connection(ws) {
     ws.on('message', function message(data) {
-        //console.log('received ', data + '');
         serialPort.write(data + '\n');
     });
 });

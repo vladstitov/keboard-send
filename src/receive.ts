@@ -9,14 +9,15 @@ SerialPort.list().then(res => {
 });
 
 const serialPort= new SerialPort( {
-    path:'COM3',
+    path:'COM5',
     baudRate: 9600
 });
 
 
 wss.on('connection', function connection(ws:WebSocketServer) {
     ws.on('message', function message(data) {
-        //console.log('received ', data + '');
+      //  console.log('received ', data + '');
+      
         serialPort.write(data + '\n');
     });  
 });
