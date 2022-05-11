@@ -11,6 +11,8 @@ ws.addListener('open', function (evt) {
 });
 ws.addListener('close', function (evt) {
     console.log('closed', evt);
+    //@ts-ignore
+    process.exit(1);
 });
 ws.addEventListener('error', event => {
     console.log('error', event);
