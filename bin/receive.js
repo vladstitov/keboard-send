@@ -13,6 +13,7 @@ const serialPort = new serialport_1.SerialPort({
 });
 wss.on('connection', function connection(ws) {
     ws.on('message', function message(data) {
+        //  console.log('received ', data + '');
         serialPort.write(data + '\n');
     });
 });
