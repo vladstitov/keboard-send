@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "send": "node bin/send.js",
-    "receive": "node bin/receive.js"
+    "receive": "node bin/receive.js",
+    "watch":"tsc -w"
   },
   "repository": {
     "type": "git",
