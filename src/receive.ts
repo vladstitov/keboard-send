@@ -14,14 +14,24 @@ const serialPort= new SerialPort( {
 });
 
 
-wss.on('connection', function connection(ws:WebSocketServer) {
+wss.on('connection', function connection(ws:WebSocket) {
     setTimeout(() => {
         console.log(ws);
         ws.send('Welcome')
     },1000);
-    ws.on('message', function message(data) {
-      //  console.log('received ', data + '');
+    ws.addEventListener('message', function message(data) {
+    
       
         serialPort.write(data + '\n');
     });  
+    ws.addEventListener('closed', function message(data) {
+          console.log('closed ', data);
+        
+         
+      }); 
+      ws.addEventListener('error', function message(data) {
+        console.log('error ', data);
+      
+       
+    });
 });
