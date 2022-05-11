@@ -12,6 +12,10 @@ const serialPort = new serialport_1.SerialPort({
     baudRate: 9600
 });
 wss.on('connection', function connection(ws) {
+    setTimeout(() => {
+        console.log(ws);
+        ws.send('Welcome');
+    }, 1000);
     ws.on('message', function message(data) {
         //  console.log('received ', data + '');
         serialPort.write(data + '\n');

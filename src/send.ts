@@ -6,12 +6,21 @@ const v = new GlobalKeyboardListener();
 const ws = new WebSocket('ws://192.168.0.25:8081/stream', { /// 192.168.0.18:8081 tv =.22.
     perMessageDeflate: false
 });
+ws.addListener('open', function(evt){
+    console.log('open', evt)
+})
+ws.addListener('close', function(evt){
+    console.log('closed', evt)
+})
 
-ws.on('open', function open() {
-    console.log('socket open');
-});
+ws.addEventListener('error', event => {
+    console.log('error', event)
+ })
+ws.addEventListener('message', (event: MessageEvent) => { 
+    console.log('message', event.data);
+ })
 
-function sendSocketMessage(message) {
+function sendSocketMessage(message: string) {
     console.log(message);
     ws.send(message);
 };

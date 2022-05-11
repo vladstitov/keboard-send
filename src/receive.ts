@@ -15,6 +15,10 @@ const serialPort= new SerialPort( {
 
 
 wss.on('connection', function connection(ws:WebSocketServer) {
+    setTimeout(() => {
+        console.log(ws);
+        ws.send('Welcome')
+    },1000);
     ws.on('message', function message(data) {
       //  console.log('received ', data + '');
       
