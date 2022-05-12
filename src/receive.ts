@@ -24,10 +24,10 @@ wss.on('connection', function connection(ws:WebSocket) {
        
         serialPort.write(evt.data.toString() + '\n');
     });  
-    ws.addEventListener('closed', function (evt) {
+    ws.addEventListener('close', function (evt) {
           console.log('closed ', evt);         
       }); 
-      
+
       ws.addEventListener('error', function (evt: Event) {
         console.log('error ', evt);
       
