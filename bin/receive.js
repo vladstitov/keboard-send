@@ -17,8 +17,9 @@ wss.on('connection', function connection(ws) {
         ws.send('Welcome');
     }, 1000);
     ws.addEventListener('message', function message(data) {
-        console.log(data);
-        serialPort.write(data + '\n');
+        const v = data.data.toString();
+        console.log(v);
+        serialPort.write(v + '\n');
     });
     ws.addEventListener('closed', function message(data) {
         console.log('closed ', data);
