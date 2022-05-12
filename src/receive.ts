@@ -19,16 +19,17 @@ wss.on('connection', function connection(ws:WebSocket) {
         console.log('connected state :', ws.readyState);
         ws.send('Welcome')
     },1000);
-    ws.addEventListener('message', function message(data) {      
-        console.log(data);
-        serialPort.write(data + '\n');
+    ws.addEventListener('message', function (data: MessageEvent) { 
+        const v = data.data.toString();
+        console.log(v);
+        serialPort.write(v + '\n');
     });  
-    ws.addEventListener('closed', function message(data) {
+    ws.addEventListener('closed', function (data) {
           console.log('closed ', data);
         
          
       }); 
-      ws.addEventListener('error', function message(data) {
+      ws.addEventListener('error', function (data) {
         console.log('error ', data);
       
        
