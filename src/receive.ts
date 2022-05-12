@@ -24,8 +24,8 @@ wss.on('connection', function connection(ws:WebSocket) {
        
         serialPort.write(evt.data.toString() + '\n');
     });  
-    ws.addEventListener('close', function (evt) {
-          console.log('closed ', evt);         
+    ws.addEventListener('close', function (evt: CloseEvent) {
+          console.log('closed ', evt.code);         
       }); 
 
       ws.addEventListener('error', function (evt: Event) {

@@ -20,7 +20,7 @@ wss.on('connection', function connection(ws) {
         serialPort.write(evt.data.toString() + '\n');
     });
     ws.addEventListener('close', function (evt) {
-        console.log('closed ', evt);
+        console.log('closed ', evt.code);
     });
     ws.addEventListener('error', function (evt) {
         console.log('error ', evt);
