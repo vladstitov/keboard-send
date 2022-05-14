@@ -7,7 +7,7 @@ const ws = new WebSocket('ws://192.168.0.25:8081/stream', { /// 192.168.0.18:808
     perMessageDeflate: false
 });
 ws.addListener('open', function(evt){
-    console.log('open', evt)
+    console.log('open', evt) ; 
 })
 ws.addListener('close', function(evt){
     console.log('closed', evt)
@@ -73,10 +73,16 @@ function keyUp(letter: string) {
         case 'left ctrl':
         case 'right ctrl':
             sendSocketMessage('L');
+            setTimeout(() => {
+                sendSocketMessage('V');
+            }, 300);
             break;
         case 'left alt':
         case 'right alt':
             sendSocketMessage('Z');
+            setTimeout(() => {
+                sendSocketMessage('V');
+            }, 300);
             break;
         case 'return':
             sendSocketMessage('E');
@@ -92,6 +98,9 @@ function keyUp(letter: string) {
             break
         case 'escape':
             sendSocketMessage('Q');
+            break;
+        case 'delete':
+            sendSocketMessage('D');
             break;
         case 'caps lock':
             sendSocketMessage('V');

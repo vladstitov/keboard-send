@@ -66,10 +66,16 @@ function keyUp(letter) {
         case 'left ctrl':
         case 'right ctrl':
             sendSocketMessage('L');
+            setTimeout(() => {
+                sendSocketMessage('V');
+            }, 300);
             break;
         case 'left alt':
         case 'right alt':
             sendSocketMessage('Z');
+            setTimeout(() => {
+                sendSocketMessage('V');
+            }, 300);
             break;
         case 'return':
             sendSocketMessage('E');
@@ -85,6 +91,9 @@ function keyUp(letter) {
             break;
         case 'escape':
             sendSocketMessage('Q');
+            break;
+        case 'delete':
+            sendSocketMessage('D');
             break;
         case 'caps lock':
             sendSocketMessage('V');
