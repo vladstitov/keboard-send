@@ -9,7 +9,7 @@ serialport_1.SerialPort.list().then(res => {
 });
 const serialPort = new serialport_1.SerialPort({
     path: 'COM5',
-    baudRate: 9600
+    baudRate: 115200
 });
 wss.on('connection', function connection(ws) {
     setTimeout(() => {
