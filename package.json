@@ -6,7 +6,7 @@
   "scripts": {
     "send": "node bin/send.js",
     "receive": "node bin/receive.js",
-    "watch":"tsc -w"
+    "watch": "tsc -w"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/vladstitov/keboard-send#readme",
   "dependencies": {
+    "@types/serialport": "^8.0.2",
     "express": "^4.17.3",
     "node-global-key-listener": "^0.0.14",
     "serialport": "^10.4.0",
