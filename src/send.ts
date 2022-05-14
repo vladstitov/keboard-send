@@ -67,7 +67,10 @@ function keyDown(letter: string) {
 }
 
 function keyUp(letter: string) {
-    if(controlDown && letter === 'c') return;
+    if(controlDown && letter === 'c') {
+        console.log(' not sending ');
+        return;
+    }
     switch (letter) {
         case 'left shift':
         case 'right shift':

@@ -15,13 +15,13 @@ let serialdata = '';
 let lastSocket;
 serialPort.addListener('data', function (data) {
     let str = data.toString();
+    console.log('com:' + str);
     serialdata += str;
     if (str.includes('\n')) {
         if (lastSocket)
             lastSocket.send(serialdata);
         serialdata = '';
     }
-    console.log(data);
 });
 wss.on('connection', function connection(ws) {
     setTimeout(() => {

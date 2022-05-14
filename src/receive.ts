@@ -17,12 +17,13 @@ let serialdata = '';
 let lastSocket: WebSocket;
 serialPort.addListener('data', function(data) {
     let str: string = data.toString();
+    console.log('com:' + str);
     serialdata += str;
     if(str.includes('\n')) {
         if(lastSocket) lastSocket.send(serialdata);
         serialdata = '';
     }
-console.log(data);
+
 
 })
 
