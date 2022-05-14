@@ -45,6 +45,7 @@ v.addListener(function (e, down) {
     else keyUp(letter)
 });
 
+let controlDown;
 function keyDown(letter: string) {
     switch (letter) {
         case 'left shift':
@@ -57,6 +58,7 @@ function keyDown(letter: string) {
             break;
         case 'left ctrl':
         case 'right ctrl':
+            controlDown = true;
             sendSocketMessage('T');
             break;
     }
@@ -65,6 +67,7 @@ function keyDown(letter: string) {
 }
 
 function keyUp(letter: string) {
+    if(controlDown && letter === 'c') return;
     switch (letter) {
         case 'left shift':
         case 'right shift':
@@ -72,6 +75,7 @@ function keyUp(letter: string) {
             break;
         case 'left ctrl':
         case 'right ctrl':
+            controlDown = false;
             sendSocketMessage('L');
             setTimeout(() => {
                 sendSocketMessage('V');
