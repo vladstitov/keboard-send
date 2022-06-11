@@ -2,7 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const serialport_1 = require("serialport");
 const ws_1 = require("ws");
-const wss = new ws_1.WebSocketServer({ port: 8081, path: '/stream' });
+const https = require("https");
+const fs = require("fs");
+const server = https.createServer({
+    cert: fs.readFileSync('../data/cert/pem'),
+    key: fs.readFileSync('../data/key.pem')
+});
+const wss = new ws_1.WebSocketServer({ server, path: '/stream' });
 serialport_1.SerialPort.list().then(res => {
     console.log('list', res);
     // serialPort.write('ROBOT POWER ON')
@@ -41,3 +47,4 @@ wss.on('connection', function connection(ws) {
         console.log('error ', evt);
     });
 });
+server.listen(8081);
