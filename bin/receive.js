@@ -52,6 +52,7 @@ wss.on('connection', function connection(ws) {
             ws.send('alive');
         else
             serialPort.write(str + '\n');
+        console.log(str);
     });
     ws.addEventListener('close', function (evt) {
         console.log('closed ', evt.code);

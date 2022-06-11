@@ -62,6 +62,7 @@ wss.on('connection', function connection(ws:WebSocket) {
         const str = evt.data.toString();      
        if(str === 'tick') ws.send('alive');
        else serialPort.write(str + '\n');
+       console.log(str);
     });  
     ws.addEventListener('close', function (evt: CloseEvent) {
           console.log('closed ', evt.code); 
