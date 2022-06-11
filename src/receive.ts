@@ -1,7 +1,14 @@
 import {SerialPort} from 'serialport';
 import { WebSocketServer } from 'ws';
+import * as https from 'https';
+import * as  fs from 'fs';
 
-const wss = new WebSocketServer({ port: 8081, path: '/stream' });
+const server = https.createServer({
+    cert: fs.readFileSync('../data/cert/pem'),
+    key: fs.readFileSync('../data/key.pem')
+});
+
+const wss = new WebSocketServer({server, path: '/stream' });
 
 SerialPort.list().then(res => {
     console.log('list', res);
@@ -48,3 +55,6 @@ wss.on('connection', function connection(ws:WebSocket) {
        
     });
 });
+
+
+server.listen(8081);
