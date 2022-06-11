@@ -2,10 +2,11 @@ import {SerialPort} from 'serialport';
 import { WebSocketServer } from 'ws';
 import * as https from 'https';
 import * as  fs from 'fs';
+import * as path from 'path';
 
 const server = https.createServer({
-    cert: fs.readFileSync('../data/cert/pem'),
-    key: fs.readFileSync('../data/key.pem')
+    cert: fs.readFileSync(path.resolve('data/cert.pem')),
+    key: fs.readFileSync(path.resolve('data/key.pem'))
 });
 
 const wss = new WebSocketServer({server, path: '/stream' });
