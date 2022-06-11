@@ -24,10 +24,7 @@ const port  = 8081;
 server.listen(port,host, () => {
     console.log(`Server is running on https://${host}:${port}`);
 });
-
   
-
-
 SerialPort.list().then(res => {
     console.log('list', res);
     // serialPort.write('ROBOT POWER ON')
@@ -48,16 +45,14 @@ serialPort.addListener('data', function(data) {
         if(lastSocket) lastSocket.send(serialdata);
         serialdata = '';
     }
-
-
 })
 
 wss.on('connection', function connection(ws:WebSocket) {
     setTimeout(() => {
         console.log('connected state :', ws.readyState);
-        ws.send('Welcome')
+        ws.send('Welcome');
         lastSocket = ws;
-    },1000);
+    },2000);
     ws.addEventListener('message', function (evt: MessageEvent) {    
         const str = evt.data.toString();      
        if(str === 'tick') ws.send('alive');
@@ -69,8 +64,7 @@ wss.on('connection', function connection(ws:WebSocket) {
       }); 
 
       ws.addEventListener('error', function (evt: Event) {
-        console.log('error ', evt);
-      
+        console.log('error ', evt);     
        
     });
 });

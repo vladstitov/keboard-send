@@ -45,7 +45,7 @@ wss.on('connection', function connection(ws) {
         console.log('connected state :', ws.readyState);
         ws.send('Welcome');
         lastSocket = ws;
-    }, 1000);
+    }, 2000);
     ws.addEventListener('message', function (evt) {
         const str = evt.data.toString();
         if (str === 'tick')
