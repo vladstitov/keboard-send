@@ -58,9 +58,11 @@ wss.on('connection', function connection(ws:WebSocket) {
         ws.send('Welcome')
         lastSocket = ws;
     },1000);
-    ws.addEventListener('message', function (evt: MessageEvent) {       
-       
-        serialPort.write(evt.data.toString() + '\n');
+    ws.addEventListener('message', function (evt: MessageEvent) {    
+        const str = evt.data.toString();
+        ws.send(str);
+      //  if(str === 'tick') ws.send('alive');
+       // else  serialPort.write(str + '\n');
     });  
     ws.addEventListener('close', function (evt: CloseEvent) {
           console.log('closed ', evt.code); 

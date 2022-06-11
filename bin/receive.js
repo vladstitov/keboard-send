@@ -47,7 +47,10 @@ wss.on('connection', function connection(ws) {
         lastSocket = ws;
     }, 1000);
     ws.addEventListener('message', function (evt) {
-        serialPort.write(evt.data.toString() + '\n');
+        const str = evt.data.toString();
+        ws.send(str);
+        //  if(str === 'tick') ws.send('alive');
+        // else  serialPort.write(str + '\n');
     });
     ws.addEventListener('close', function (evt) {
         console.log('closed ', evt.code);
