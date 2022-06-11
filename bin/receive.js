@@ -5,12 +5,21 @@ const ws_1 = require("ws");
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
+const serverListener = function (req, resp) {
+    resp.setHeader("Content-Type", "text/html");
+    resp.writeHead(200);
+    resp.send('Welcome');
+};
 const server = https.createServer({
     cert: fs.readFileSync(path.resolve('data/cert.pem')),
     key: fs.readFileSync(path.resolve('data/key.pem'))
-});
+}, serverListener);
 const wss = new ws_1.WebSocketServer({ server });
-server.listen(8081);
+const host = null;
+const port = 8081;
+server.listen(port, host, () => {
+    console.log(`Server is running on https://${host}:${port}`);
+});
 serialport_1.SerialPort.list().then(res => {
     console.log('list', res);
     // serialPort.write('ROBOT POWER ON')
