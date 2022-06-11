@@ -9,7 +9,8 @@ const server = https.createServer({
     cert: fs.readFileSync(path.resolve('data/cert.pem')),
     key: fs.readFileSync(path.resolve('data/key.pem'))
 });
-const wss = new ws_1.WebSocketServer({ server, path: '/stream' });
+const wss = new ws_1.WebSocketServer({ server });
+server.listen(8081);
 serialport_1.SerialPort.list().then(res => {
     console.log('list', res);
     // serialPort.write('ROBOT POWER ON')
@@ -48,4 +49,3 @@ wss.on('connection', function connection(ws) {
         console.log('error ', evt);
     });
 });
-server.listen(8081);

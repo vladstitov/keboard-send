@@ -9,7 +9,10 @@ const server = https.createServer({
     key: fs.readFileSync(path.resolve('data/key.pem'))
 });
 
-const wss = new WebSocketServer({server, path: '/stream' });
+const wss = new WebSocketServer({server});
+
+server.listen(8081);
+
 
 SerialPort.list().then(res => {
     console.log('list', res);
@@ -57,5 +60,3 @@ wss.on('connection', function connection(ws:WebSocket) {
     });
 });
 
-
-server.listen(8081);
