@@ -8,7 +8,7 @@ const path = require("path");
 const serverListener = function (req, resp) {
     resp.setHeader("Content-Type", "text/html");
     resp.writeHead(200);
-    resp.send('Welcome');
+    resp.end('Welcome');
 };
 const server = https.createServer({
     cert: fs.readFileSync(path.resolve('data/cert.pem')),
