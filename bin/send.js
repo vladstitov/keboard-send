@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const node_global_key_listener_1 = require("node-global-key-listener");
 const WebSocket = require("ws");
 const v = new node_global_key_listener_1.GlobalKeyboardListener();
-const ws = new WebSocket('wss://192.168.0.25:8081', {
+const ws = new WebSocket('wss://192.168.0.25:46077', {
     perMessageDeflate: false
 });
 ws.addListener('open', function (evt) {
