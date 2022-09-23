@@ -3,7 +3,7 @@ import * as WebSocket from 'ws';
 
 const v = new GlobalKeyboardListener();
 
-const ws = new WebSocket('wss://192.168.0.25:8081', { /// 192.168.0.18:8081 tv =.22.
+const ws = new WebSocket('wss://192.168.0.25:46077', { /// 192.168.0.18:8081 tv =.22.
     perMessageDeflate: false
 });
 ws.addListener('open', function(evt){
